@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Agora</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E1E1EC7;
+            color: white;
+            padding: 50px;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .button {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #1faa59;
+        }
+        .cookie-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none; /* Escondido inicialmente */
+            z-index: 1000;
+            width: auto; /* Ajusta automaticamente a largura */
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Sombra para destaque */
+            animation: slideIn 0.5s forwards; /* Animação de entrada */
+        }
+        .cookie-button {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Teste agora clicando em "Saiba mais"</h1>
+        <a href="https://app.novospyapp.online/espiao3" class="button">Saiba mais</a>
+    </div>
+    <div class="cookie-popup" id="cookiePopup">
+        Nós usamos cookies para melhorar sua experiência. Ao continuar, você aceita nosso uso de cookies.
+        <button class="cookie-button" onclick="acceptCookies()">Aceitar</button>
+    </div>
+    <div class="footer">
+        <a href="https://acessoappspy.online/privacidade">Política de Privacidade</a> | 
+        <a href="https://acessoappspy.online/termos">Termos e Condições de Uso</a>
+    </div>
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookiePopup').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookiePopup').style.display = 'flex';
+            }
+        };
+    </script>
+</body>
+</html>
